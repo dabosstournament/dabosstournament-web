@@ -23,9 +23,13 @@ jobs:
       - name: Install bun
         run: |
           curl -fsSL https://bun.sh/install | bash
-          export BUN_INSTALL="$HOME/.bun"
-          export PATH="$BUN_INSTALL/bin:$PATH"
+          echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
+          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
           
+      # Ensure bun is available by using the updated PATH
+      - name: Verify bun installation
+        run: bun --version
+      
       # Install dependencies using bun
       - run: bun install
       
