@@ -14,6 +14,7 @@
     "@nuxt/ui": "^2.18.4",
     "firebase": "^10.13.0",
     "nuxt": "^3.12.4",
+    "nuxt-vuefire": "^1.0.4",
     "vue": "latest",
     "vuefire": "^3.2.0",
     "yup": "^1.4.0"
