@@ -20,15 +20,7 @@ jobs:
           node-version: "20"
           
       # Install bun
-      - name: Install bun
-        run: |
-          curl -fsSL https://bun.sh/install | bash
-          echo "BUN_INSTALL=\$HOME/.bun" >> $GITHUB_ENV
-          echo "PATH=\$BUN_INSTALL/bin:\$PATH" >> $GITHUB_ENV
-          
-      # Ensure bun is available by using the updated PATH
-      - name: Verify bun installation
-        run: bun --version
+      - uses: oven-sh/setup-bun@v2
       
       # Install dependencies using bun
       - run: bun install
