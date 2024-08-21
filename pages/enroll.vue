@@ -344,7 +344,7 @@ async function sendTeamInformation(event: FormSubmitEvent<TeamInformationSchema>
 
 // MARK: - Step 4: Show Upload Success Modal
 
-const isUploadSuccessModalPresented = ref(true)
+const isUploadSuccessModalPresented = ref(false)
 
 function registerAnotherTeam() {
     teamInformationState = {
