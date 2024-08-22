@@ -195,7 +195,6 @@ const isPhoneNumberFormDisabled = computed(() => {
 const isPhoneNumberVerificationModalPresented = ref(false)
 
 async function sendPhoneNumberVerificationCode() {
-    state.value = State.WaitingPhoneNumberVerificationCode
     try {
         const phoneNumber = phoneNumberState.phoneNumberPrefix + phoneNumberState.phoneNumber
         confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, verifier)
@@ -383,9 +382,7 @@ onMounted(() => {
         size: 'invisible',
         theme: 'dark',
         callback: () => {
-            if (state.value !== State.InsertingPhoneNumberVerificationCode) {
-                // sendPhoneNumberVerificationCode();
-            }
+            state.value = State.WaitingPhoneNumberVerificationCode
         }
     });
 })
