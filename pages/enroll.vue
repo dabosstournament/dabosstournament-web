@@ -203,7 +203,6 @@ async function sendPhoneNumberVerificationCode() {
     } catch (error: unknown) {
         if (error instanceof Error) {
             // Show error in a toast
-            reloadNuxtApp()
             toast.add({ title: "ERRORE: RIPROVA PIÚ TARDI", description: error.message, color: "red" })
             state.value = State.InsertingPhoneNumber
         }
