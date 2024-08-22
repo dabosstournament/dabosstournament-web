@@ -7,9 +7,9 @@
 </template>
 
 <style>
-body {
+html, body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 16px;
+    font-size: 32px;
     color: white;
     background-color: black;
 }
