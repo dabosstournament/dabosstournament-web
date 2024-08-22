@@ -204,6 +204,8 @@ async function sendPhoneNumberVerificationCode() {
         if (error instanceof Error) {
             // Show error in a toast
             toast.add({ title: "ERRORE: RIPROVA PIÚ TARDI", description: error.message, color: "red" })
+            verifier.clear()
+            verifier.render()
             state.value = State.InsertingPhoneNumber
         }
     }
