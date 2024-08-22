@@ -383,7 +383,7 @@ onMounted(() => {
         size: 'invisible',
         callback: () => {
             if (state.value !== State.InsertingPhoneNumberVerificationCode) {
-                sendPhoneNumberVerificationCode();
+                // sendPhoneNumberVerificationCode();
             }
         }
     });
