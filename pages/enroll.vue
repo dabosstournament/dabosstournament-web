@@ -4,7 +4,7 @@
             <h1>ISCRIVI IL TUO <span class="text-magenta-700">TEAM</span></h1>
         </UContainer>
         <UContainer class="flex flex-col place-content-center">
-            <UButton v-if="state === State.ReloadingPage" @click="reloadNuxtApp">Ricarica la pagina</UButton>
+            <UButton v-if="state === State.ReloadingPage" @click="reloadNuxtApp">RIPROVA</UButton>
             <UForm
 
                 v-if="state === State.InsertingPhoneNumber || state === State.WaitingPhoneNumberVerificationCode || state === State.SigningIn"
