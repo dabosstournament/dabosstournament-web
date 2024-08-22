@@ -172,7 +172,7 @@ type PhoneNumberSchema = InferType<typeof phoneNumberSchema>
 
 const phoneNumberState = reactive({
     phoneNumberPrefix: "+39",
-    phoneNumber: "3298015551"
+    phoneNumber: undefined
 })
 
 const isPhoneNumberFormValid = computed(() => {
