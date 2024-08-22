@@ -11,3 +11,11 @@
         </UContainer>
     </UContainer>
 </template>
+
+<script setup lang="ts">
+head() {
+    return {
+      title: "DABOSS"
+    };
+}
+</script>
