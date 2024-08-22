@@ -203,14 +203,8 @@ async function sendPhoneNumberVerificationCode() {
     } catch (error: unknown) {
         if (error instanceof Error) {
             // Show error in a toast
+            reloadNuxtApp()
             toast.add({ title: "ERRORE: RIPROVA PIÚ TARDI", description: error.message, color: "red" })
-            verifier = new RecaptchaVerifier(auth, 'sign-in-button', {
-                size: 'invisible',
-                theme: 'dark',
-                callback: () => {
-                    state.value = State.WaitingPhoneNumberVerificationCode
-                }
-            }); 
             state.value = State.InsertingPhoneNumber
         }
     }
