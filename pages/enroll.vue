@@ -42,7 +42,7 @@
                         size="xl" label="NOME E COGNOME" name="player1Name">
                         <UInput v-model="teamInformationState.player1Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player1Size">
+                    <UFormGroup class="min-w-24" required help=" " size="xl" label="TAGLIA" name="player1Size">
                         <USelect v-model="teamInformationState.player1Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -54,7 +54,7 @@
                         size="xl" label="NOME E COGNOME" name="player2Name">
                         <UInput v-model="teamInformationState.player2Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player2Size">
+                    <UFormGroup class="min-w-24"  required help=" " size="xl" label="TAGLIA" name="player2Size">
                         <USelect v-model="teamInformationState.player2Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -66,7 +66,7 @@
                         size="xl" label="NOME E COGNOME" name="player3Name">
                         <UInput v-model="teamInformationState.player3Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player3Size">
+                    <UFormGroup class="min-w-24"  required help=" " size="xl" label="TAGLIA" name="player3Size">
                         <USelect v-model="teamInformationState.player3Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -78,7 +78,7 @@
                         size="xl" label="NOME E COGNOME" name="player4Name">
                         <UInput v-model="teamInformationState.player4Name" />
                     </UFormGroup>
-                    <UFormGroup help=" " size="xl" label="TAGLIA" name="player4Size">
+                    <UFormGroup class="min-w-24" help=" " size="xl" label="TAGLIA" name="player4Size">
                         <USelect v-model="teamInformationState.player4Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
