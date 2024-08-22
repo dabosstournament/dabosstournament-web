@@ -22,7 +22,7 @@
                 <div class="flex place-content-center pt-4">
                     <UButton :loading="isPhoneNumberFormLoading" size="xl" id="sign-in-button"
                         :disabled="isPhoneNumberFormDisabled" type="submit">
-                        INVIA CODICE
+                        INVIA IL CODICE
                     </UButton>
                 </div>
             </UForm>
