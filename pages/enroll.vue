@@ -380,9 +380,9 @@ function registerAnotherTeam() {
 
 onMounted(() => {
     verifier = new RecaptchaVerifier(auth, 'sign-in-button', {
-        'size': 'invisible',
-        'data-theme': 'dark',
-        'callback': () => {
+        size: 'invisible',
+        theme: 'dark',
+        callback: () => {
             if (state.value !== State.InsertingPhoneNumberVerificationCode) {
                 // sendPhoneNumberVerificationCode();
             }
