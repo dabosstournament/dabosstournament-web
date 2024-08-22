@@ -1,5 +1,5 @@
 <template>
-    <UContainer class="h-screen flex flex-col space-y-12 py-12 justify-around">
+    <UContainer class="h-[calc(100dvh)] flex flex-col space-y-12 py-12 justify-around">
         <UContainer class="text-4xl md:text-6xl lg:text-8xl flex place-content-center select-none">
             <h1>DA<span class="text-magenta-700">BOSS</span> TOURNAMENT</h1>
         </UContainer>
