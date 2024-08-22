@@ -9,6 +9,7 @@
 <style>
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
     color: white;
     background-color: black;
 }
