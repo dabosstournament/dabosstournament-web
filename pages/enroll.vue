@@ -144,11 +144,9 @@ import { number, object, string, type InferType } from 'yup'
 import type { FormSubmitEvent } from '#ui/types'
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
-head() {
-    return {
-      title: "DABOSS - Iscrizione"
-    };
-}
+definePageMeta({
+  title: 'DABOSS - Iscrizione'
+})
     
 const cellularRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
