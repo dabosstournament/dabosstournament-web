@@ -54,7 +54,7 @@
                         size="xl" label="NOME E COGNOME" name="player2Name">
                         <UInput v-model="teamInformationState.player2Name" />
                     </UFormGroup>
-                    <UFormGroup class="min-w-24"  required help=" " size="xl" label="TAGLIA" name="player2Size">
+                    <UFormGroup class="min-w-24" required help=" " size="xl" label="TAGLIA" name="player2Size">
                         <USelect v-model="teamInformationState.player2Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -66,7 +66,7 @@
                         size="xl" label="NOME E COGNOME" name="player3Name">
                         <UInput v-model="teamInformationState.player3Name" />
                     </UFormGroup>
-                    <UFormGroup class="min-w-24"  required help=" " size="xl" label="TAGLIA" name="player3Size">
+                    <UFormGroup class="min-w-24" required help=" " size="xl" label="TAGLIA" name="player3Size">
                         <USelect v-model="teamInformationState.player3Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -122,7 +122,8 @@
         <UCard>
             <template #header>
                 <UContainer class="flex place-content-center text-center">
-                    <h1>{{ teamInformationState.name }} REGISTRATA CON <span class="text-magenta-700">SUCCESSO</span></h1>
+                    <h1>{{ teamInformationState.name }} REGISTRATA CON <span class="text-magenta-700">SUCCESSO</span>
+                    </h1>
                 </UContainer>
             </template>
             <div class="flex flex-col space-y-4 justify-around">
@@ -145,9 +146,9 @@ import type { FormSubmitEvent } from '#ui/types'
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 useHead({
-  title: 'DABOSS TOURNAMENT - Iscrizione'
+    title: 'DABOSS TOURNAMENT - Iscrizione'
 })
-    
+
 const cellularRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 const toast = useToast()
@@ -286,12 +287,12 @@ let teamInformationState = reactive({
     player3Name: undefined,
     player3Size: "L",
     player4Name: undefined,
-    player4Size: undefined
+    player4Size: "L"
 })
 
-const teamInformationCategoryOptions = ['', 'PRO', 'MISTA', 'LADIES', 'U18', 'U15']
+const teamInformationCategoryOptions = ['PRO', 'MISTA', 'LADIES', 'U18', 'U15']
 
-const teamInformationShirtSizeOptions = ['', 'S', 'M', 'L', 'XL', 'XXL']
+const teamInformationShirtSizeOptions = ['S', 'M', 'L', 'XL', 'XXL']
 
 const isTeamInformationFormValid = computed(() => {
     return teamInformationSchema.isValidSync(teamInformationState)
@@ -310,28 +311,34 @@ async function sendTeamInformation(event: FormSubmitEvent<TeamInformationSchema>
     try {
         // SAVE IN FIRESTORE
         if (auth.currentUser?.phoneNumber !== null) {
+            const players = [
+                {
+                    name: teamInformationState.player1Name || null,
+                    size: teamInformationState.player1Size || null
+                },
+                {
+                    name: teamInformationState.player2Name || null,
+                    size: teamInformationState.player2Size || null
+                },
+                {
+                    name: teamInformationState.player3Name || null,
+                    size: teamInformationState.player3Size || null
+                }
+            ];
+
+            // Conditionally add player4 if player4Name is not empty, undefined, or null
+            if (teamInformationState.player4Name) {
+                players.push({
+                    name: teamInformationState.player4Name || null,
+                    size: teamInformationState.player4Size || null
+                });
+            }
+
             await addDoc(collection(useFirestore(), "enrollments"), {
                 cellular: auth.currentUser?.phoneNumber || null,
                 name: teamInformationState.name || null,
                 category: teamInformationState.category || null,
-                players: [
-                    {
-                        name: teamInformationState.player1Name || null,
-                        size: teamInformationState.player1Size || null
-                    },
-                    {
-                        name: teamInformationState.player2Name || null,
-                        size: teamInformationState.player2Size || null
-                    },
-                    {
-                        name: teamInformationState.player3Name || null,
-                        size: teamInformationState.player3Size || null
-                    },
-                    {
-                        name: teamInformationState.player4Name || null,
-                        size: teamInformationState.player4Size || null
-                    }
-                ]
+                players: players
             })
         } else {
             throw new Error("Utente non loggato")
@@ -361,13 +368,13 @@ function registerAnotherTeam() {
         player3Name: undefined,
         player3Size: "L",
         player4Name: undefined,
-        player4Size: undefined
+        player4Size: "L"
     }
 
     state.value = State.InsertingTeamInformation
 
     isUploadSuccessModalPresented.value = false
-} 
+}
 
 
 
@@ -375,7 +382,9 @@ onMounted(() => {
     verifier = new RecaptchaVerifier(auth, 'sign-in-button', {
         size: 'invisible',
         callback: () => {
-            sendPhoneNumberVerificationCode();
+            if (state.value !== State.InsertingPhoneNumberVerificationCode) {
+                sendPhoneNumberVerificationCode();
+            }
         }
     });
 })
