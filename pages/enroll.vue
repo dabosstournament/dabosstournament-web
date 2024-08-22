@@ -204,8 +204,13 @@ async function sendPhoneNumberVerificationCode() {
         if (error instanceof Error) {
             // Show error in a toast
             toast.add({ title: "ERRORE: RIPROVA PIÚ TARDI", description: error.message, color: "red" })
-            verifier.clear()
-            verifier.render()
+            verifier = new RecaptchaVerifier(auth, 'sign-in-button', {
+                size: 'invisible',
+                theme: 'dark',
+                callback: () => {
+                    state.value = State.WaitingPhoneNumberVerificationCode
+                }
+            }); 
             state.value = State.InsertingPhoneNumber
         }
     }
