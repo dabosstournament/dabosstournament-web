@@ -1,6 +1,6 @@
 <template>
     <UContainer class="h-[calc(100dvh)] flex flex-col space-y-12 py-12 justify-around">
-        <UContainer class="text-4xl md:text-6xl lg:text-8xl flex place-content-center select-none">
+        <UContainer class="text-center text-3xl md:text-6xl lg:text-9xl flex place-content-center select-none">
             <h1>DA<span class="text-magenta-700">BOSS</span> TOURNAMENT</h1>
         </UContainer>
         <UContainer class="select-none">

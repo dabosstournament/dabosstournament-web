@@ -1,6 +1,6 @@
 <template>
     <UContainer class="min-h-[calc(100dvh)] flex flex-col space-y-12 py-12 justify-around">
-        <UContainer class="text-4xl md:text-6xl lg:text-8xl flex place-content-center select-none mb-auto">
+        <UContainer class="text-center text-3xl md:text-6xl lg:text-9xl flex place-content-center select-none mb-auto">
             <h1>ISCRIVI IL TUO <span class="text-magenta-700">TEAM</span></h1>
         </UContainer>
         <UContainer class="flex flex-col place-content-center">
