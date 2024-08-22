@@ -4,7 +4,9 @@
             <h1>ISCRIVI IL TUO <span class="text-magenta-700">TEAM</span></h1>
         </UContainer>
         <UContainer class="flex flex-col place-content-center">
+            <UButton v-if="state === State.ReloadingPage" @click="reloadNuxtApp">Ricarica la pagina</UButton>
             <UForm
+
                 v-if="state === State.InsertingPhoneNumber || state === State.WaitingPhoneNumberVerificationCode || state === State.SigningIn"
                 size="xl" :schema="phoneNumberSchema" :state="phoneNumberState" class="space-y-4"
                 @submit="sendPhoneNumberVerificationCode">
@@ -157,6 +159,7 @@ const auth = useFirebaseAuth()!
 
 enum State {
     InsertingPhoneNumber,
+    ReloadingPage,
     WaitingPhoneNumberVerificationCode,
     InsertingPhoneNumberVerificationCode,
     SigningIn,
@@ -203,8 +206,8 @@ async function sendPhoneNumberVerificationCode() {
     } catch (error: unknown) {
         if (error instanceof Error) {
             // Show error in a toast
+            state.value = State.ReloadingPage
             toast.add({ title: "ERRORE: RIPROVA PIÚ TARDI", description: error.message, color: "red" })
-            state.value = State.InsertingPhoneNumber
         }
     }
 }
