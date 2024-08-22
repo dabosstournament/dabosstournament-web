@@ -13,9 +13,8 @@
 </template>
 
 <script setup lang="ts">
-head() {
-    return {
-      title: "DABOSS"
-    };
-}
+definePageMeta({
+  title: 'DABOSS'
+})
 </script>
+
