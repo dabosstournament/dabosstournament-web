@@ -4,7 +4,7 @@
             <h1>ISCRIVI IL TUO <span class="text-magenta-700">TEAM</span></h1>
         </UContainer>
         <UContainer class="flex flex-col place-content-center">
-            <UButton v-if="state === State.ReloadingPage" @click="reloadNuxtApp">RIPROVA</UButton>
+            <UButton v-if="state === State.ReloadingPage" size="xl" @click="reloadNuxtApp">RIPROVA</UButton>
             <UForm
 
                 v-if="state === State.InsertingPhoneNumber || state === State.WaitingPhoneNumberVerificationCode || state === State.SigningIn"
@@ -22,7 +22,7 @@
                 <div class="flex place-content-center pt-4">
                     <UButton :loading="isPhoneNumberFormLoading" size="xl" id="sign-in-button"
                         :disabled="isPhoneNumberFormDisabled" type="submit">
-                        Invia codice
+                        INVIA CODICE
                     </UButton>
                 </div>
             </UForm>
@@ -89,7 +89,7 @@
                 <div class="flex place-content-center pt-4">
                     <UButton :loading="isTeamInformationFormLoading" size="xl" :disabled="isTeamInformationFormDisabled"
                         type="submit">
-                        Iscrivi la squadra
+                        ISCRIVI IL TEAM
                     </UButton>
                 </div>
             </UForm>
@@ -113,7 +113,7 @@
 
                     <UButton class="mx-auto mt-4" size="xl" :loading="isPhoneNumberValidationCodeFormLoading"
                         type="submit" :disabled="isPhoneNumberValidationCodeFormDisabled">
-                        Verifica
+                        VERIFICA
                     </UButton>
                 </div>
             </UForm>
