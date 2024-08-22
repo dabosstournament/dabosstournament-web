@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  title: 'DABOSS'
+useHead({
+  title: 'DABOSS TOURNAMENT'
 })
 </script>
 
