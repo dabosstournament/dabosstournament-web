@@ -1,14 +1,14 @@
 <template>
     <UContainer class="min-h-[calc(100dvh)] flex flex-col space-y-12 py-12 justify-around">
-        <UContainer class="text-center text-3xl md:text-6xl lg:text-9xl flex place-content-center select-none mb-auto">
+        <UContainer class="text-center text-3xl md:text-6xl lg:text-8xl flex place-content-center select-none mb-auto">
             <h1>ISCRIVI IL TUO <span class="text-magenta-700">TEAM</span></h1>
         </UContainer>
         <UContainer class="flex flex-col place-content-center">
             <UForm
                 v-if="state === State.InsertingPhoneNumber || state === State.WaitingPhoneNumberVerificationCode || state === State.SigningIn"
-                size="lg" :schema="phoneNumberSchema" :state="phoneNumberState" class="space-y-4"
+                size="xl" :schema="phoneNumberSchema" :state="phoneNumberState" class="space-y-4"
                 @submit="sendPhoneNumberVerificationCode">
-                <UFormGroup help="Ci serve per poter confermare la tua identità" size="lg" label="CELLULLARE"
+                <UFormGroup help="Ci serve per poter confermare la tua identità" size="xl" label="CELLULLARE"
                     name="phoneNumber">
                     <div class="flex space-x-2">
                         <USelect class="max-w-36" v-model="phoneNumberState.phoneNumberPrefix"
@@ -18,31 +18,31 @@
                 </UFormGroup>
 
                 <div class="flex place-content-center pt-4">
-                    <UButton :loading="isPhoneNumberFormLoading" size="lg" id="sign-in-button"
+                    <UButton :loading="isPhoneNumberFormLoading" size="xl" id="sign-in-button"
                         :disabled="isPhoneNumberFormDisabled" type="submit">
                         Invia codice
                     </UButton>
                 </div>
             </UForm>
 
-            <UForm v-if="state === State.InsertingTeamInformation || state === State.UploadingTeamInformation" size="lg"
+            <UForm v-if="state === State.InsertingTeamInformation || state === State.UploadingTeamInformation" size="xl"
                 :schema="teamInformationSchema" :state="teamInformationState" class="space-y-4"
                 @submit="sendTeamInformation">
-                <UFormGroup required help="Un nome che rimarrà nella storia" size="lg" label="NOME TEAM" name="name">
+                <UFormGroup required help="Un nome che rimarrà nella storia" size="xl" label="NOME TEAM" name="name">
                     <UInput v-model="teamInformationState.name" />
                 </UFormGroup>
 
-                <UFormGroup required help=" " size="lg" label="CATEGORIA" name="category">
+                <UFormGroup required help=" " size="xl" label="CATEGORIA" name="category">
                     <USelect v-model="teamInformationState.category" :options="teamInformationCategoryOptions" />
                 </UFormGroup>
 
                 <UDivider class="pt-4" label="Player 1" />
                 <div class="flex space-x-2">
                     <UFormGroup class="flex-grow" required help="Colui che non delude mai, il capitano della squadra"
-                        size="lg" label="NOME E COGNOME" name="player1Name">
+                        size="xl" label="NOME E COGNOME" name="player1Name">
                         <UInput v-model="teamInformationState.player1Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="lg" label="TAGLIA" name="player1Size">
+                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player1Size">
                         <USelect v-model="teamInformationState.player1Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -51,10 +51,10 @@
                 <UDivider class="pt-4" label="Player 2" />
                 <div class="flex space-x-2">
                     <UFormGroup class="flex-grow" required help="La stella, l'uomo chiave che vi trainerà alla vittoria"
-                        size="lg" label="NOME E COGNOME" name="player2Name">
+                        size="xl" label="NOME E COGNOME" name="player2Name">
                         <UInput v-model="teamInformationState.player2Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="lg" label="TAGLIA" name="player2Size">
+                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player2Size">
                         <USelect v-model="teamInformationState.player2Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -63,10 +63,10 @@
                 <UDivider class="pt-4" label="Player 3" />
                 <div class="flex space-x-2">
                     <UFormGroup class="flex-grow" required help="Il pivottone posterizzatore, perno della squadra"
-                        size="lg" label="NOME E COGNOME" name="player3Name">
+                        size="xl" label="NOME E COGNOME" name="player3Name">
                         <UInput v-model="teamInformationState.player3Name" />
                     </UFormGroup>
-                    <UFormGroup required help=" " size="lg" label="TAGLIA" name="player3Size">
+                    <UFormGroup required help=" " size="xl" label="TAGLIA" name="player3Size">
                         <USelect v-model="teamInformationState.player3Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
@@ -75,17 +75,17 @@
                 <UDivider class="pt-4" label="Player 4" />
                 <div class="flex space-x-2">
                     <UFormGroup class="flex-grow" help="Il grande difensore che polverizzerà le speranze degl'avversari"
-                        size="lg" label="NOME E COGNOME" name="player4Name">
+                        size="xl" label="NOME E COGNOME" name="player4Name">
                         <UInput v-model="teamInformationState.player4Name" />
                     </UFormGroup>
-                    <UFormGroup help=" " size="lg" label="TAGLIA" name="player4Size">
+                    <UFormGroup help=" " size="xl" label="TAGLIA" name="player4Size">
                         <USelect v-model="teamInformationState.player4Size"
                             :options="teamInformationShirtSizeOptions" />
                     </UFormGroup>
                 </div>
 
                 <div class="flex place-content-center pt-4">
-                    <UButton :loading="isTeamInformationFormLoading" size="lg" :disabled="isTeamInformationFormDisabled"
+                    <UButton :loading="isTeamInformationFormLoading" size="xl" :disabled="isTeamInformationFormDisabled"
                         type="submit">
                         Iscrivi la squadra
                     </UButton>
@@ -101,15 +101,15 @@
                     <h1>INSERISCI IL CODICE DI VERIFICA</h1>
                 </UContainer>
             </template>
-            <UForm size="lg" :schema="phoneNumberSchema" :state="phoneNumberState"
+            <UForm size="xl" :schema="phoneNumberSchema" :state="phoneNumberState"
                 @submit="verifyPhoneNumberVerificationCode">
                 <div class="flex flex-col space-y-4 justify-around">
-                    <UFormGroup help="Il codice arriverà a momenti" size="lg" name="phoneNumberVerificationCode"
+                    <UFormGroup help="Il codice arriverà a momenti" size="xl" name="phoneNumberVerificationCode"
                         class="mx-auto" :error="phoneNumberVerificationCodeError">
                         <UInput class="mx-auto" size="xl" v-model="phoneNumberVerificationState.verificationCode" />
                     </UFormGroup>
 
-                    <UButton class="mx-auto mt-4" size="lg" :loading="isPhoneNumberValidationCodeFormLoading"
+                    <UButton class="mx-auto mt-4" size="xl" :loading="isPhoneNumberValidationCodeFormLoading"
                         type="submit" :disabled="isPhoneNumberValidationCodeFormDisabled">
                         Verifica
                     </UButton>
@@ -126,7 +126,7 @@
                 </UContainer>
             </template>
             <div class="flex flex-col space-y-4 justify-around">
-                <UButton class="mx-auto mt-4" size="lg" @click="registerAnotherTeam">
+                <UButton class="mx-auto mt-4" size="xl" @click="registerAnotherTeam">
                     REGISTRA UN'ALTRA SQUADRA
                 </UButton>
                 <ULink class="mx-auto mt-4" to="/" type="button">
