@@ -148,7 +148,7 @@ import type { FormSubmitEvent } from '#ui/types'
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 useHead({
-    title: 'DABOSS TOURNAMENT - Iscrizione'
+    title: 'DABOSS TOURNAMENT - ISCRIZIONE'
 })
 
 const cellularRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
