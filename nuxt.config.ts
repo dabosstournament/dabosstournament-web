@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: "2024-08-18",
   devtools: { enabled: true },
+  ignore:  [
+    'pages/enroll.vue',
+  ],
   modules: [
     "@nuxt/ui",
     '@nuxt/fonts',

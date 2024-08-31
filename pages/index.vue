@@ -3,9 +3,9 @@
         <UContainer class="text-center text-6xl md:text-8xl lg:text-9xl flex place-content-center select-none">
             <h1><span class="text-8xl lg:text-9xl">DA<span class="text-magenta-700">BOSS</span></span> TOURNAMENT</h1>
         </UContainer>
-        <UContainer class="select-none">
+        <!--UContainer class="select-none">
             <UButton to="enroll" size="xl" label="ISCRIVI IL TUO TEAM" />
-        </UContainer>
+        </UContainer-->
         <UContainer class="flex place-content-center overflow-hidden">
             <img src="/img/landing.jpg" alt="Daboss" class="max-w-full max-h-full object-contain"/>
         </UContainer>
